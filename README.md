@@ -1,19 +1,19 @@
-# 🎀 Doll Wishlist
+# 💜 Doll Wishlist
 
 Sistema de gerenciamento de wishlist para colecionadores de bonecas, permitindo organizar suas peças desejadas, controlar investimentos e acompanhar aquisições.
 
-## 📋 Sobre o Projeto
+## Sobre o Projeto
 
-O **Doll Wishlist** é uma aplicação web desenvolvida para auxiliar colecionadores de bonecas a gerenciar suas listas de desejos. Com ele, você pode:
+A **Doll Wishlist** é uma aplicação web desenvolvida para auxiliar colecionadores de bonecas a gerenciar suas listas de desejos. Com ele, você pode:
 
-- 📝 Cadastrar bonecas desejadas com informações detalhadas
-- 💰 Acompanhar quanto dinheiro precisa investir em cada peça
+- ✨ Cadastrar bonecas desejadas com informações detalhadas
+- 💲 Acompanhar quanto dinheiro precisa investir em cada peça
 - ✅ Marcar bonecas como adquiridas
 - 🎯 Definir prioridades de aquisição
 - 📊 Visualizar estatísticas da sua coleção
 - 🔐 Manter seus dados seguros com autenticação
 
-## ✨ Funcionalidades
+##  ⚡ Funcionalidades
 
 ### Autenticação
 - ✅ Registro de usuário
@@ -158,19 +158,19 @@ doll-wishlist/
 
 | Método | Endpoint | Descrição | Auth |
 |--------|----------|-----------|------|
-| POST | `/api/auth/register` | Registrar novo usuário | ❌ |
-| POST | `/api/auth/login` | Fazer login | ❌ |
-| GET | `/api/auth/profile` | Obter perfil do usuário | ✅ |
+| POST | `/api/auth/register` | Registrar novo usuário |
+| POST | `/api/auth/login` | Fazer login |
+| GET | `/api/auth/profile` | Obter perfil do usuário | 
 
 ### Bonecas
 
 | Método | Endpoint | Descrição | Auth |
 |--------|----------|-----------|------|
-| GET | `/api/dolls` | Listar todas as bonecas | ✅ |
-| GET | `/api/dolls/:id` | Obter boneca por ID | ✅ |
-| POST | `/api/dolls` | Criar nova boneca | ✅ |
-| PUT | `/api/dolls/:id` | Atualizar boneca | ✅ |
-| DELETE | `/api/dolls/:id` | Excluir boneca | ✅ |
+| GET | `/api/dolls` | Listar todas as bonecas |
+| GET | `/api/dolls/:id` | Obter boneca por ID |
+| POST | `/api/dolls` | Criar nova boneca |
+| PUT | `/api/dolls/:id` | Atualizar boneca |
+| DELETE | `/api/dolls/:id` | Excluir boneca | 
 
 ## 📊 Modelo de Dados
 
@@ -206,14 +206,6 @@ model Doll {
 }
 ```
 
-## 🎨 Design
-
-A interface utiliza um design moderno inspirado em Y2K/Cyber aesthetic com:
-- 🌈 Gradientes vibrantes (roxo, rosa, verde)
-- ✨ Efeitos glassmorphism
-- 🎯 Bordas neon
-- 🌙 Suporte a tema escuro
-
 ## 🔒 Segurança
 
 - Senhas criptografadas com bcrypt
@@ -222,16 +214,6 @@ A interface utiliza um design moderno inspirado em Y2K/Cyber aesthetic com:
 - Proteção de rotas no front e back-end
 - Validação de dados em todas as requisições
 
-## 🚧 Melhorias Futuras
-
-- [ ] Categorias de bonecas
-- [ ] Filtros e busca avançada
-- [ ] Gráficos de gastos por período
-- [ ] Exportação de dados
-- [ ] Upload de múltiplas imagens
-- [ ] Modo claro/escuro toggle
-- [ ] Notificações de preços
-- [ ] Lista de desejos pública (compartilhável)
 
 ## 📝 Licença
 

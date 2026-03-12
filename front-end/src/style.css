@@ -1,10 +1,16 @@
 @import "tailwindcss";
 
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@theme {
+  --font-outfit: 'Outfit', sans-serif;
+}
+
 @variant dark (&:where(.dark, .dark *));
 
 @layer base {
   html {
-    @apply bg-white dark:bg-black;
+    @apply bg-white dark:bg-black font-outfit;
   }
 
   body {

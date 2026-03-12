@@ -42,4 +42,27 @@ export const authController = {
             next(error);
         }
     },
+
+    async loginWithGoogle(req, res, next) {
+        try {
+            const { googleToken, code, accessToken } = req.body;
+
+            if (!googleToken && !code && !accessToken) {
+                return res.status(400).json({ error: 'Token ou código Google é obrigatório' });
+            }
+
+            const credentials = googleToken 
+                ? { googleToken } 
+                : code 
+                    ? { code } 
+                    : { accessToken };
+            const result = await authService.loginWithGoogle(credentials);
+            return res.json(result);
+        } catch (error) {
+            if (error.message.includes('Token') || error.message.includes('código')) {
+                return res.status(401).json({ error: error.message });
+            }
+            next(error);
+        }
+    },
 };

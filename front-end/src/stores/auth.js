@@ -50,6 +50,24 @@ export const useAuthStore = defineStore('auth', {
             }
         },
 
+        async loginWithGoogle(googleToken) {
+            this.loading = true
+            this.error = null
+            try {
+                const { data } = await api.post('/auth/google', { googleToken })
+                this.user = data.user
+                this.token = data.token
+                localStorage.setItem('token', data.token)
+                localStorage.setItem('user', JSON.stringify(data.user))
+                return data
+            } catch (error) {
+                this.error = error.response?.data?.error || 'Erro ao fazer login com Google'
+                throw error
+            } finally {
+                this.loading = false
+            }
+        },
+
         logout() {
             this.user = null
             this.token = null

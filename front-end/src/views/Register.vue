@@ -1,5 +1,8 @@
 <template>
-  <div class="min-h-screen bg-white dark:bg-black flex items-center justify-center px-6 transition-colors duration-300">
+  <div class="min-h-screen bg-white dark:bg-black flex items-center justify-center px-6 transition-colors duration-300 relative">
+    <div class="absolute top-4 right-4">
+      <ThemeToggle />
+    </div>
     <div class="w-full max-w-md">
       <div class="text-center mb-8">
         <h1 class="text-6xl font-bold bg-linear-to-r from-pink-400 via-purple-400 to-green-400 bg-clip-text text-transparent drop-shadow-lg font-impact tracking-wider mb-2">
@@ -62,6 +65,16 @@
               Já tem conta? Faça login
             </router-link>
           </div>
+
+          <div class="flex items-center gap-3">
+            <div class="flex-1 h-px bg-pink-200 dark:bg-pink-900"></div>
+            <span class="text-sm text-pink-400 dark:text-pink-500 font-medium">ou</span>
+            <div class="flex-1 h-px bg-pink-200 dark:bg-pink-900"></div>
+          </div>
+
+          <div class="flex justify-center">
+            <GoogleButton @success="handleGoogleSuccess" @error="handleGoogleError" />
+          </div>
         </form>
       </div>
     </div>
@@ -72,11 +85,11 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
-import { useThemeStore } from '@/stores/theme'
+import GoogleButton from '@/components/GoogleButton.vue'
+import ThemeToggle from '@/components/ThemeToggle.vue'
 
 const router = useRouter()
 const authStore = useAuthStore()
-const themeStore = useThemeStore()
 
 const form = ref({
   name: '',
@@ -90,5 +103,18 @@ const handleRegister = async () => {
     router.push('/')
   } catch (error) {
   }
+}
+
+const handleGoogleSuccess = async (credential) => {
+  try {
+    await authStore.loginWithGoogle(credential)
+    router.push('/')
+  } catch (error) {
+    // Erro já tratado no store
+  }
+}
+
+const handleGoogleError = (message) => {
+  authStore.error = message
 }
 </script>
